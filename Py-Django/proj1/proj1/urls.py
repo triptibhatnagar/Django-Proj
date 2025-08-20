@@ -22,5 +22,6 @@ urlpatterns = [
     path('about/', views.about, name='about'),
     path('contact/', views.contact, name='contact'),
     path('help/', views.help, name='helpme'),
+    path('dtl/', views.dtl),
     path('app1/', include('app1.urls'), name='app1'),
 ]

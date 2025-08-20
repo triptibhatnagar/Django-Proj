@@ -13,3 +13,6 @@ def contact(request):
 
 def help(request):
     return HttpResponse("this is my help page")
+
+def dtl(request):
+    return render(request, 'index2.html')
