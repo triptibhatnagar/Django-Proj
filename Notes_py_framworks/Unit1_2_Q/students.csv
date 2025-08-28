@@ -1,0 +1,8 @@
+StudentID,FirstName,LastName,Age,Grade,Email
+101,John,Doe,15,10,john.doe@example.com
+102,Jane,Smith,16,11,jane.smith@example.com
+103,Bob,Johnson,14,9,bob.johnson@example.com
+104,Alice,Williams,15,10,alice.williams@example.com
+105,Tom,Brown,17,12,tom.brown@example.com
+106,Henry,Shakespear,12,12,tom.brown@example.com
+107,Stuart,Little,10,15,tom.brown@example.com
