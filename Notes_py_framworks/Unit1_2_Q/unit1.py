@@ -52,7 +52,7 @@
 #     rev = ""
 #     n = str(n)
 #     for char in n:
-#         rev = rev + char
+#         rev = char + rev # prepend, not append
 #     return(rev == n)
 # print(is_palindrome(7))
 
