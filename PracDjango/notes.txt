@@ -1,0 +1,105 @@
+DJANGO:
+https://www.djangoproject.com/
+more quick, less code
+ridiculously fast: rapid dev
+reassuringly secure: csrf protection by default
+exceedingly scalable: scalable on bare minimum
+EG - paytm
+
+INSTALLATION
+dev takes place inside virtual env (separate box, don't affected by our system installations)
+
+CREATING VIRTUAL ENV USING PIP
+py -m venv <foldername>
+py -m venv .venv
+because virtual env files are generally kept hidden like .gitignore
+
+BUT HERE, WE ARE GOING TO USE uv
+pip install uv
+
+WHY uv ??
+extremely fast package manager written in rust
+
+CREATING VIRTAUL ENV USING PIP
+uv venv
+
+ACTIVATE VIRTUAL ENV
+run activate script
+.venv\Scripts\activate
+
+DEACTIVATE VIRTUAL ENV
+deactivate
+
+TO INSTALL ANYTHING FURTHER
+uv pip install <...>
+
+INSTALL DJANGO
+uv pip install Django
+
+MAKING DJANGO PROJECT
+django-admin : main cmd
+startproject : first time, it is used
+later, multiple small apps are created
+startapp
+
+django-admin startproject <proj-name>
+
+RUNNING PROJECT
+cd <proj-name>
+python manage.py runserver <portNo(opt)>
+
+
+INDENTATION OR LEVELS
+project level, app level, root level (where manage.py is present)
+
+FILES EXPLORATION
+manage.py : starting pt
+sqlite3: default db in django
+project folder(inside wala): create app inside it
+__pycache__: optimization as multiple modules are being used
+settings.py: whole configuartion (installed apps, middleware[auth also included], etc ....)
+urls.py: routing file
+views.py: after clicking url, what is shown is written here; defines all views[functionality, business logic]
+models.py: databases, models
+
+
+urls.py[handles routes] --> views.py[return an html file etc...]
+
+DJANGO FLOW STRUCTURE
+
+COMPLEX ARCHITECTURE
+web framework under the hood uses a tech stack to know about req, res, n/w, browser, etc..
+python internally uses event triggers to know about req res
+
+user[needs req res model; eg-login, view tweet, etc..] --> 
+user sent a req using browser
+req goes to a website(which is running on any server)
+req goes to django
+django tries to find from where req comes and what it wants to access; eg- /login, /register
+for that, django internally has url resolver
+url resolver accesses urls.py which may redirect to other urls.py[modular code str]
+urls.py sends views.py[main controller]
+views.py may direct send a response or via models, db or a response may be sent by via templates
+response is sent to django
+django sends it to frontend
+
+user --> request --> django --> url resolver --> urls.py --> urls.py, urls.py ... --> views.py --> response / model.py --> db / templates --> django --> response --> user
+
+EASY ARCHITECTURE (in short)
+user --> req --> urls.py --> views.py --> res --> user
+
+PATH IN URLS.PY
+path(route, view, name of url pattern)
+
+STATIC: for css, js
+TEMPLATES: for html
+
+TEMPLATING ENGINE
+html file will work as template engine
+template engine: you can inject your code programatically anywhere
+href="{% static 'style.css'%}
+static: loading any static asset
+'style.css' : asset
+ERROR: Did you forget to register or load this tag?
+{% load static %}
+
