@@ -10,31 +10,31 @@ INSTALLATION
 dev takes place inside virtual env (separate box, don't affected by our system installations)
 
 CREATING VIRTUAL ENV USING PIP
-py -m venv <foldername>
-py -m venv .venv
+********** py -m venv <foldername>
+********** py -m venv .venv
 because virtual env files are generally kept hidden like .gitignore
 
 BUT HERE, WE ARE GOING TO USE uv
-pip install uv
+********** pip install uv
 
 WHY uv ??
 extremely fast package manager written in rust
 
-CREATING VIRTAUL ENV USING PIP
-uv venv
+CREATING VIRTUAL ENV USING UV
+********** uv venv
 
 ACTIVATE VIRTUAL ENV
 run activate script
-.venv\Scripts\activate
+********** .venv\Scripts\activate
 
 DEACTIVATE VIRTUAL ENV
-deactivate
+********** deactivate
 
 TO INSTALL ANYTHING FURTHER
-uv pip install <...>
+********** uv pip install <...>
 
 INSTALL DJANGO
-uv pip install Django
+********** uv pip install Django
 
 MAKING DJANGO PROJECT
 django-admin : main cmd
@@ -42,11 +42,11 @@ startproject : first time, it is used
 later, multiple small apps are created
 startapp
 
-django-admin startproject <proj-name>
+********** django-admin startproject <proj-name>
 
 RUNNING PROJECT
-cd <proj-name>
-python manage.py runserver <portNo(opt)>
+********** cd <proj-name>
+********** python manage.py runserver <portNo(opt)>
 
 
 INDENTATION OR LEVELS
@@ -64,6 +64,8 @@ models.py: databases, models
 
 
 urls.py[handles routes] --> views.py[return an html file etc...]
+
+----------------------------------------------------------------------------------------------------------------------------------
 
 DJANGO FLOW STRUCTURE
 
@@ -94,12 +96,70 @@ path(route, view, name of url pattern)
 STATIC: for css, js
 TEMPLATES: for html
 
+********** in settings.py
+'DIRS': ['templates'], # specifying ki django k templates kaha milenge
+
+
 TEMPLATING ENGINE
 html file will work as template engine
 template engine: you can inject your code programatically anywhere
-href="{% static 'style.css'%}
+********** href="{% static 'style.css'%}
 static: loading any static asset
 'style.css' : asset
 ERROR: Did you forget to register or load this tag?
-{% load static %}
+********** {% load static %} : loading static asset
 
+Templating Engine 👉 Tool jo data + template (HTML) ko combine karke dynamic web pages banata hai.
+Django me default templating engine hai Django Template Language (DTL).
+Ye kaam karta hai backend se aaye data ko frontend (HTML page) me inject karne ka.
+
+Templating Language 👉 Special syntax (e.g., {{ }}, {% %}) jisse template me variables, loops, conditions likhe jaate hain.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+JINJA or DTL
+
+jinja version 2 is used in django by default
+mostly companies use default tempplating engine, they use jinja
+coz no further extensions, normal html files, directly inject variables or loops in html
+
+Jinja actually templating engine hai, aur uske andar jo syntax use hota hai (e.g., {{ variable }}, {% for ... %}), usse hum Jinja templating language kehte hain.
+
+SYNTAX
+
+variables {{  }}
+{% %}
+piping like {{ myDate|date:"Y-m-d" }}
+comments {# #}
+
+
+MAKING APPS IN A PROJECT
+project - made 1 time [startproject]
+apps - multiple apps inside it [startapp]
+
+w/o manage.py => can't run server and can't create apps 
+
+your main project don't know about these apps
+so, first step is to aware about apps to the project
+settings.py
+
+********** INSTALLED_APPS = [ cooked in files....., 'app1' ]
+
+
+we can make different templates for different apps (no extra setting for this is require)(inside it creating appname folder)
+or
+we can write their code in different folders within the templates of project
+
+FIXING EMMET SUGGESTIONS OF HTML
+installing django extensions => emmet suggestions of html disappear
+Ctrl+, > Settings > Emmet > Emmet: Include Language > Add Item > key -> django-html, value -> html > OK
+
+VIEWS DONE IN APP
+URLS.PY absent in app
+create it
+copy project's urls.py, paste it into newly created app's urls.py
+
+URLS.PY(project) ---> URLS.PY, URLS.PY, URLS.PY, ....... (apps)
+
+PAASING CONTROL
+from django.urls import include
