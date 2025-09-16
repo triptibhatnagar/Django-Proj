@@ -117,11 +117,11 @@ Templating Language 👉 Special syntax (e.g., {{ }}, {% %}) jisse template me v
 
 ----------------------------------------------------------------------------------------------------------------------------------
 
-JINJA or DTL
+JINJA2 or DTL
 
 jinja version 2 is used in django by default
-mostly companies use default tempplating engine, they use jinja
-coz no further extensions, normal html files, directly inject variables or loops in html
+mostly companies use default templating engine, they use jinja
+coz in jinja, no further extensions, normal html files, directly inject variables or loops in html
 
 Jinja actually templating engine hai, aur uske andar jo syntax use hota hai (e.g., {{ variable }}, {% for ... %}), usse hum Jinja templating language kehte hain.
 
@@ -145,8 +145,8 @@ settings.py
 
 ********** INSTALLED_APPS = [ cooked in files....., 'app1' ]
 
-
-we can make different templates for different apps (no extra setting for this is require)(inside it creating appname folder)
+TEMPLATES FOR APP
+we can make different templates for different apps (no extra setting for this is required)(inside it creating appname folder)
 or
 we can write their code in different folders within the templates of project
 
@@ -161,5 +161,26 @@ copy project's urls.py, paste it into newly created app's urls.py
 
 URLS.PY(project) ---> URLS.PY, URLS.PY, URLS.PY, ....... (apps)
 
-PAASING CONTROL
+PASSING CONTROL from project to app
 from django.urls import include
+urlpatterns = [
+    path('appname/', include('app1.urls'))
+]
+
+POWER OF JINJA
+{% load static %}
+block named
+{% block <...> %}{% endblock <...> %}
+block unnamed
+{% block <...>  %}{% endblock  %}
+
+default value can be passed in these blocks
+block will be replaced
+
+CREATING A TEMPLATING
+i.e. creating a base structure that would be used anywhere
+
+the file which is extended, it is searched by djnago
+if it is not in app's templates, it goes to project's templates to search for it because we wrote 'templates' in settings.py
+
+name in urls.py is important
