@@ -184,3 +184,70 @@ the file which is extended, it is searched by djnago
 if it is not in app's templates, it goes to project's templates to search for it because we wrote 'templates' in settings.py
 
 name in urls.py is important
+
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+HOW TO USE TAILWIND CSS IN DJANGO
+KNOW ABOUT ADMIN PANEL
+
+STEP1 :
+WAY1 - uv pip install django-tailwind
+WAY2 - for hot reloading (automatically update on change) 
+uv pip install 'django-tailwind[reload]'
+
+INSTALLING PIP
+as installing talwind in uv may give u some configuration errors
+Way1 : python -m ensurepip --upgrade
+Way2 : python -m pip install --upgrade pip
+
+now did : pip install 'django-tailwind[reload]'
+
+STEP2 : 
+add 'tailwind' in installed apps in project's settings.py
+
+STEP3:
+python manage.py tailwind init
+packages will install
+ask for app name, leave it default (theme)
+
+a theme folder will appear
+
+STEP4:
+add 'theme' in installed apps in project's settings.py
+
+STEP5: 
+in project's settings.py, write :-
+TAILWIND_APP_NAME = 'theme'
+INTERNAL_IPS = ['127.0.0.1']  {kyuki 2 server chalane h muje, vese zruri ni h}
+domain mapping can also be done
+
+STEP6: 
+add in settings.py :
+NPM_BIN_PATH = "C:/Program Files/nodejs/npm.cmd"
+as tailwind is node based
+install tailwind through manage.py
+run:
+python manage.py tailwind install
+
+STEP7:
+u will see 
+{% load static tailwind_tags %}
+and 
+{% tailwind_css %}
+you can inject tailwind by using these 2 lines anywhere
+
+inject these 2 lines into your base html file
+but still tailwind classes won't work
+
+STEP8:
+open new terminal, name it tailwind for your convenience
+python manage.py tailwind start
+now tailwind will continuously run
+
+still now reloading every time is required
+so, for hot reloading
+
+add 'django_browser_reload', in installed_apps
+add 'django_browser_reload.middleware.BrowserReloadMiddleware', in middleware
+path("__reload__/", include("django_browser_reload.urls")), # always at last
