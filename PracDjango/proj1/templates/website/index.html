@@ -1,3 +1,20 @@
+{% extends "layout.html" %}
+
+{# think about the variables u want to replace #}
+{# differentiation b/w blocks will be upon their name #}
+
+{% block title %} {# name of block must be same as in main page #}
+    Home page
+{% endblock %}
+
+{% block content %} {# name of block must be same as in main page #}
+    <h1>chai aur code home page</h1>
+{% endblock %}
+
+
+
+
+{% comment %} 
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -12,4 +29,5 @@
 <body>
     <h1>helloooo, kesee ho</h1>
 </body>
-</html>
+</html> 
+{% endcomment %}
