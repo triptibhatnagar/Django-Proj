@@ -251,3 +251,31 @@ so, for hot reloading
 add 'django_browser_reload', in installed_apps
 add 'django_browser_reload.middleware.BrowserReloadMiddleware', in middleware
 path("__reload__/", include("django_browser_reload.urls")), # always at last
+
+
+ADMIN PANEL IN DJANGO
+highly configurable
+can be modified
+django admin templates can be obtained like tailwind
+highly customizable
+diretly talk to models - write 1 line and crud functionality to models will be obtained
+
+
+CORE ERROR WHILE RUNNING SERVER
+You have 18 unapplied migration(s)....
+migrations - talk to database 
+now sqlite, later postgres, mysql, nosql etc.. can be used
+
+you don't talk to database direcly, django ORM talk on your behalf
+for this, cmds are:-
+
+python manage.py migrate (due migrations are applied)
+
+Now, NO ERROR !!!
+
+you can do ..../admin -> admin.site.urls
+multiple things in settings.py
+like databases, auth_password_validators, etc...
+
+CREATING SUPERUSER
+python manage.py createsuperuser
