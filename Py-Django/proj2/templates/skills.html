@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tripti Bhatnagar | Skills</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-b from-purple-900 via-purple-800 to-purple-700 text-yellow-300 font-sans">
+
+  <!-- Navbar -->
+  <nav class="fixed top-0 w-full z-50 bg-black backdrop-blur-md border-b border-purple-800 shadow-md">
+    <div class="max-w-6xl mx-auto px-6">
+      <ul class="flex justify-center space-x-10 py-4 text-lg font-semibold">
+        <li><a href="{% url 'home' %}" class="hover:text-yellow-400 transition-colors duration-300">Home</a></li>
+        <li><a href="{% url 'edu' %}" class="hover:text-yellow-400 transition-colors duration-300">Education</a></li>
+        <li><a href="{% url 'proj' %}" class="hover:text-yellow-400 transition-colors duration-300">Projects</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Skills Section -->
+  <section class="max-w-4xl mx-auto mt-36 px-6">
+    <h2 class="text-4xl font-bold text-center mb-10 drop-shadow-lg">Skills</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="p-6 rounded-3xl border border-purple-700 shadow-2xl bg-purple-800/80 backdrop-blur-sm">
+        <h3 class="text-2xl font-semibold mb-2 text-yellow-200">Frontend</h3>
+        <p class="text-lg">HTML, CSS, JavaScript, Tailwind CSS, React.js</p>
+      </div>
+      <div class="p-6 rounded-3xl border border-purple-700 shadow-2xl bg-purple-800/80 backdrop-blur-sm">
+        <h3 class="text-2xl font-semibold mb-2 text-yellow-200">Backend</h3>
+        <p class="text-lg">Node.js, Express.js, FastAPI, Django</p>
+      </div>
+      <div class="p-6 rounded-3xl border border-purple-700 shadow-2xl bg-purple-800/80 backdrop-blur-sm">
+        <h3 class="text-2xl font-semibold mb-2 text-yellow-200">Database</h3>
+        <p class="text-lg">MongoDB, PostgreSQL, MySQL</p>
+      </div>
+      <div class="p-6 rounded-3xl border border-purple-700 shadow-2xl bg-purple-800/80 backdrop-blur-sm">
+        <h3 class="text-2xl font-semibold mb-2 text-yellow-200">Other</h3>
+        <p class="text-lg">Git, DSA (Java), REST APIs, Problem Solving</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center mt-20 py-6 text-sm border-t border-purple-700 text-yellow-200">
+    © 2025 Tripti Bhatnagar. All Rights Reserved.
+  </footer>
+
+</body>
+</html>

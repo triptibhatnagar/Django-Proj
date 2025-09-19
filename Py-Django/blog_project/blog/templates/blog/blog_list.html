@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>All Blogs</h1>
+
+
+{% for blog in blogs %}
+<article>
+<h2><a href="{% url 'blog-detail' blog.pk %}">{{ blog.title }}</a></h2>
+<p>By {{ blog.author.username }} • {{ blog.created_at|date:'SHORT'}}

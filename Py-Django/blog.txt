@@ -1,0 +1,5 @@
+project : my_blog_application
+cd --
+-> app: blog
+-> settings.py
+-> 

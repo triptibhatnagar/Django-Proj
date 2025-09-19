@@ -1,0 +1,89 @@
+1. install uv
+pip install uv
+uv :- uv is a Rust-based tool that replaces pip, pip-tools, pipx, poetry, pyenv, twine, virtualenv, and more
+
+2. create virtual env
+uv venv .venv
+
+3. to run env
+cd .venv
+cd Scripts
+.\activate
+
+4. to install django
+uv pip install django
+
+5. to check django version
+django-admin --version
+
+6. to create django project
+django-admin startproject <proj-name>
+
+7. settings.py
+The settings.py file in a Django project centralizes all configuration details, defining how the project behaves, including database setup, installed apps, middleware, and security settings.
+
+urls.py
+The urls.py file in a Django project maps URLs to their corresponding views, enabling proper routing of user requests.
+
+------ written code ------
+
+8. to run project
+cd proj1
+python manage.py runserver
+ 
+------------------------------------------------------------------------------------------------------
+superuser:
+username - helloworld
+password - tripti27
+
+table created in models.py
+
+
+
+
+
+
+
+-------------------------
+
+djagno-admin startproject databased
+cd databased
+djagno-admin startapp demo
+settings.py -> add app
+makemigrations
+migrate
+python manage.py createsuperuser
+
+models
+regsiter
+from .models import Book
+admin.site.register(Book)
+bookadmin class
+migrations again
+
+
+
+
+
+
+
+
+TOOLS INSTALLATION
+CREATE VENEV
+ACTIVATE
+
+PROJECT, APP
+
+2. APPLY MVT
+TEMPLATES, LIST
+
+3. ADMIN-RELATED
+MAKEMIGRATIONS
+MIGRATE
+SUPERUSER
+MODELS
+REGISTER IN ADMIN.PY
+
+4. HEADER SITE TITLE INDEX
+
+5. WITH REACT

@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tripti Bhatnagar | Home</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-b from-purple-900 via-purple-800 to-purple-700 text-yellow-300 font-sans">
+
+  <!-- Navbar -->
+  <nav class="fixed top-0 w-full z-50 bg-black backdrop-blur-md border-b border-purple-800 shadow-md">
+    <div class="max-w-6xl mx-auto px-6">
+      <ul class="flex justify-center space-x-10 py-4 text-lg font-semibold">
+        <li><a href="{% url 'edu' %}" class="hover:text-yellow-400 transition-colors duration-300">Education</a></li>
+        <li><a href="{% url 'skill' %}" class="hover:text-yellow-400 transition-colors duration-300">Skills</a></li>
+        <li><a href="{% url 'proj' %}" class="hover:text-yellow-400 transition-colors duration-300">Projects</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header class="text-center pt-36 pb-20 px-4 bg-gradient-to-r from-purple-600 to-purple-400  shadow-lg">
+    <h1 class="text-5xl md:text-6xl font-extrabold text-yellow-300 drop-shadow-lg">
+      TRIPTI BHATNAGAR
+    </h1>
+    <p class="mt-4 text-xl md:text-2xl tracking-wide text-yellow-200">
+      Web Developer • DSA Enthusiast • MERN Stack
+    </p>
+  </header>
+
+  <!-- About Section -->
+  <section class="max-w-3xl mx-auto mt-16 px-6 ">
+    <div class="p-10 rounded-3xl border border-purple-700 shadow-2xl bg-purple-800/80 backdrop-blur-sm w-full bg-gradient-to-r from-purple-500 to-purple-900">About Me</h2>
+      <p class="text-lg leading-relaxed mb-4">
+        Hey! I'm Tripti Bhatnagar, a web developer passionate about clean code and modern designs.  
+        I build responsive websites using <span class="font-semibold text-yellow-200">HTML, CSS, JavaScript,</span> and the <span class="font-semibold text-yellow-200">MERN stack</span>.
+      </p>
+      <p class="text-lg leading-relaxed">
+        Along with development, I love solving algorithmic problems with Java and constantly sharpening my DSA skills 🚀.
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center mt-20 py-6 text-sm border-t border-purple-700 text-yellow-200">
+    © 2025 Tripti Bhatnagar. All Rights Reserved.
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tripti Bhatnagar | Projects</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-b from-purple-900 via-purple-800 to-purple-700 text-yellow-300 font-sans">
+
+  <!-- Navbar -->
+  <nav class="fixed top-0 w-full z-50 bg-black backdrop-blur-md border-b border-purple-800 shadow-md">
+    <div class="max-w-6xl mx-auto px-6">
+      <ul class="flex justify-center space-x-10 py-4 text-lg font-semibold">
+        <li><a href="{% url 'home' %}" class="hover:text-yellow-400 transition-colors duration-300">Home</a></li>
+        <li><a href="{% url 'edu' %}" class="hover:text-yellow-400 transition-colors duration-300">Education</a></li>
+        <li><a href="{% url 'skill' %}" class="hover:text-yellow-400 transition-colors duration-300">Skills</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Projects Section -->
+  <section class="max-w-5xl mx-auto mt-36 px-6">
+    <h2 class="text-4xl font-bold text-center mb-10 drop-shadow-lg">Projects</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="p-8 rounded-3xl border border-purple-700 shadow-2xl bg-purple-800/80 backdrop-blur-sm">
+        <h3 class="text-2xl font-semibold mb-2 text-yellow-200">Smart Study Scheduler</h3>
+        <p class="text-lg mb-2">A web app using FastAPI & PostgreSQL to help students schedule study efficiently.</p>
+        <a href="#" class="text-yellow-400 hover:underline">View Project</a>
+      </div>
+      <div class="p-8 rounded-3xl border border-purple-700 shadow-2xl bg-purple-800/80 backdrop-blur-sm">
+        <h3 class="text-2xl font-semibold mb-2 text-yellow-200">Accessibility Tracker</h3>
+        <p class="text-lg mb-2">A tool to track website accessibility and suggest improvements for better usability.</p>
+        <a href="#" class="text-yellow-400 hover:underline">View Project</a>
+      </div>
+      <div class="p-8 rounded-3xl border border-purple-700 shadow-2xl bg-purple-800/80 backdrop-blur-sm">
+        <h3 class="text-2xl font-semibold mb-2 text-yellow-200">E-Commerce Website</h3>
+        <p class="text-lg mb-2">A modern MERN stack e-commerce platform with product listing, cart, and checkout features.</p>
+        <a href="#" class="text-yellow-400 hover:underline">View Project</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center mt-20 py-6 text-sm border-t border-purple-700 text-yellow-200">
+    © 2025 Tripti Bhatnagar. All Rights Reserved.
+  </footer>
+
+</body>
+</html>
