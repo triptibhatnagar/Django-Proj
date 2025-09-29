@@ -10,8 +10,8 @@ INSTALLATION
 dev takes place inside virtual env (separate box, don't affected by our system installations)
 
 CREATING VIRTUAL ENV USING PIP
-********** py -m venv <foldername>
-********** py -m venv .venv
+********** python -m venv <foldername>
+********** python -m venv .venv
 because virtual env files are generally kept hidden like .gitignore
 
 BUT HERE, WE ARE GOING TO USE uv
@@ -57,7 +57,7 @@ manage.py : starting pt
 sqlite3: default db in django
 project folder(inside wala): create app inside it
 __pycache__: optimization as multiple modules are being used
-settings.py: whole configuartion (installed apps, middleware[auth also included], etc ....)
+settings.py: whole configuration (installed apps, middleware[auth also included], etc ....)
 urls.py: routing file
 views.py: after clicking url, what is shown is written here; defines all views[functionality, business logic]
 models.py: databases, models
@@ -279,3 +279,82 @@ like databases, auth_password_validators, etc...
 
 CREATING SUPERUSER
 python manage.py createsuperuser
+
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+MODELS
+database interaction and configuration
+
+
+you may forget the password of admin (superuser), you can set it
+python manage.py changepassword <user_name>
+
+we want to use admin but don't have any models yet
+
+WHENEVER DATA INTERACTION
+
+Step1: models.py not in project, but in app
+models.py,admin.py already present in app
+
+UNDERSTAND ROUTING OF MODELS ...
+
+you can directly write models in models.py for database
+db.sqlite3 - whole sql
+ENGINE is django.db.backends.sqlite3 in DATABASES in settings.py
+but databases can be reset, you can read here https://docs.djangoproject.com/en/5.2/ref/settings/#databases
+
+no need to change code, but db can be changed, bcoz we are not directly interacting with db, through django orm layer, we interact
+so on doing 1 setting you can change the db
+
+MODEL, TABLE
+A model is like the plan/blueprint.
+A table is the actual structure in the database created from that model.
+
+models.Model (models k andr se ek Model le lo)
+
+FIELDS IN MODELS
+fields depend on the database, suggestions will be shown acc to db
+
+-> images field
+IMAGES DIRECTLY NOT SUPPORTED, additional settings required( third party plugin etc..)
+    image = models.ImageField(upload_to='chais/')
+images placed in folder - chais
+urls saved to db (not images)
+
+-> date field
+from django.utils import timezone
+date_added = models.DateTimeField(default=timezone.now)
+
+-> enums    
+# using enums
+    CHAI_TYPE_CHOICE = [
+        # tuple of key-value pair
+        ('ML', 'MASALA'),
+        ('GR', 'GINGER'),
+        ('KL', 'KIWI'),
+        ('PL', 'PLAIN'),
+        ('EL', 'ELAICHI'),
+    ]
+    now designing field which will be highly dependent on these choices
+    type = models.CharField(max_length=2, choices=CHAI_TYPE_CHOICE)
+
+
+NOW INSTALLING PILLOW
+python -m pip install Pillow
+
+but u want to store images
+change in settings.py as it must know
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+but URLS MUST KNOW ALSO
+proj's urls
+
+1. import static asset
+from django.conf import settings
+from django.conf.urls.static import static
+
+now use these
+static ko btana pdta h ki settings m se media url ko load krlo
