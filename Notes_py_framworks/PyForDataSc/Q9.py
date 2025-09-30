@@ -5,7 +5,7 @@ class Vehicle:
         self.brand = brand
     def honk(self):
         print("Honk!")
-        
+
 class Car(Vehicle):
     def __init__(self, brand, model):
         super().__init__(brand)

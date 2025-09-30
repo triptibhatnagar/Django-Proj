@@ -5,17 +5,15 @@ df = pd.read_csv('data.csv')
 print(df.isnull().sum())
 
 '''
-df.isnull() → returns a DataFrame of booleans (True if value is missing, else False).
-.sum() (without axis argument) → by default, sums column-wise.
+isnull() → check karta hai ki DataFrame ke har cell me missing value hai ya nahi.
+Missing value ka matlab NaN (Not a Number), None, ya khali cell.
+Ye ek True/False table banata hai.
+True → agar value missing hai.
+False → agar value present hai.
 
-Since True = 1 and False = 0, the result is the count of missing values per column.
-
-So df.isnull().sum() returns a pandas Series where:
-Index = column names
-Values = number of missing values in each column
-
-Now about dtype:
-dtype means data type of the values in the Series/DataFrame column.
-In this case, df.isnull().sum() produces integer counts.
-Therefore, the result Series will have dtype: int64 (most common in pandas).
+.sum()
+Jab aap True/False values pe .sum() use karte ho, Python unko 1 aur 0 ke tarah count karta hai.
+True = 1
+False = 0
+Iska matlab har column me kitne True (yaani missing values) hai wo count ho jata hai.
 '''

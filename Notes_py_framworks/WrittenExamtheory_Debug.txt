@@ -1,0 +1,83 @@
+1. What is the difference between 'is' and '=='' in Python?
+'is' checks for identity (same memory), '==' checks for equality in value.
+Example:
+a = [1,2]; b = a; c = [1,2]
+a is b True, a == c True, a is c False
+
+
+2. Differentiate between list, tuple, and dictionary.
+List: mutable, ordered.
+Tuple: immutable, ordered.
+Dict: key-value pairs, unordered (Python 3.6+ insertion ordered).
+
+
+3. What is the use of lambda functions? Give one example.
+Lambda is an anonymous function used for short, inline functions.
+Example: square = lambda x: x*x
+
+
+4. Explain loc[] vs iloc[] in pandas with example.
+loc[]: label-based indexing.
+iloc[]: integer-based indexing.
+Example: df.loc[0, 'name'] vs df.iloc[0, 1]
+
+
+5. How do you handle missing values in pandas?
+Use isnull(), fillna(), dropna().
+Example: df.fillna(0), df.dropna(), df.isnull().sum()
+
+
+6. What is the output of this code? Why?
+
+x = [1, 2, 3]
+y = x
+y[0] = 100
+print(x)
+Output: [100, 2, 3]
+Because y is a reference to x; changing y[0] also changes x.
+
+
+7. Explain try-except block in Python with an example for ZeroDivisionError.
+try:
+a = int(input())
+b = int(input())
+print(a/b)
+except ZeroDivisionError:
+print('Cannot divide by zero.')
+
+
+8. What is groupby() used for in pandas?
+groupby() is used to split data into groups based on a column and perform aggregate functions like
+sum, mean.
+
+9. How to merge two DataFrames and fill missing values?
+Use pd.merge(df1, df2, how='outer').fillna(0) to merge and fill NaNs.
+
+
+10. What are the differences between apply(), map(), and lambda?
+apply(): applies a function along axis.
+map(): works on Series.
+lambda: used with both.
+Example: df['col'].apply(lambda x: x+1)
+
+
+11. Explain the use of heatmap, boxplot, and pairplot in seaborn.
+heatmap: show correlation, boxplot: distribution with outliers, pairplot: all variable
+relationships (esp. for classification).
+
+
+12. What are the advantages of NumPy arrays over Python lists?
+NumPy arrays are faster, memory-efficient, and support broadcasting and vectorized operations.
+
+
+13. How to create and reshape a NumPy array? Write a code snippet.
+arr = np.arange(12).reshape(3, 4) creates 3x4 matrix from numbers 011.
+
+
+14. Why do we use virtual environments in Python for Data Science?
+Virtual environments allow isolated project-specific dependencies, preventing conflicts.
+
+
+15. What is vectorization in NumPy? Why is it important?
+Vectorization allows applying operations on entire arrays instead of loops. It's faster and
+concise. Example: arr + 1
